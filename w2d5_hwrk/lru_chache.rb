@@ -9,7 +9,7 @@ class LRUCache
     @cache.count
   end
 
-  def add(el)
+  def add(el) #this is O(n) where n is the size of the cache
     if @cache.count(el) == 1
       @cache.delete(el)
     elsif count == @size
@@ -22,7 +22,4 @@ class LRUCache
     print @cache
     nil
   end
-
-  private
-
 end
