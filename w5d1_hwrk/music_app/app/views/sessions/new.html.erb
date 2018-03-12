@@ -1,0 +1,21 @@
+<h2>LOGIN USER</h2>
+
+<form action="<%= sessions_url %>" method="post">
+  <label for="email">Email</label>
+  <input type="text" id="email" name='user[email]' value="">
+
+  <br>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name='user[password]' value="">
+
+  <br>
+
+<input type="submit" value="Submit">
+</form>
+<br>
+<br>
+<h2>New User?</h2>
+<form action="<%=new_user_url%>" method="GET">
+<input type="submit" value="SIGN UP">
+</form>

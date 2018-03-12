@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <h1 id="title"> MUSIC APP </h1>
+    <% if logged_in? %>
+    <nav>
+      <p>Now Logged in as: <%=current_user.email %></p>
+      <form id='logout_button' action="<%=sessions_url%>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="LOGOUT">
+      </form>
+    </nav>
+    <% end %>
+
+    <% if flash[:success] %>
+      <%=flash[:success] %>
+    <% end %>
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <%= error %>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
